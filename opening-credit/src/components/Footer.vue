@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-
+        <p>Copyright © youseokhwan 2019</p>
     </div>
 </template>
 
@@ -12,8 +12,15 @@ export default {
 
 <style scoped>
     .footer {
+        display: flex;
+        align-items: center;
+        vertical-align: center;
         width: 85vw;
         height: 3.5rem;
-        background-color: chartreuse;
+        background-color: #D7F1D7;
+    }
+    p {
+        width: 100%;
+        text-align: center;
     }
 </style>

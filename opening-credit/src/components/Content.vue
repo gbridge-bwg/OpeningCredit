@@ -27,6 +27,5 @@ export default {
 <style scoped>
     .content {
         width: 85vw;
-        background-color: darkseagreen;
     }
 </style>

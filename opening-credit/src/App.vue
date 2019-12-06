@@ -1,7 +1,6 @@
 <template>
     <div id="app">
         <Sidebar></Sidebar>
-        
         <div id="right">
             <Navbar></Navbar>
             <Content></Content>

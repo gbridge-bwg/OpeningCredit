@@ -8,45 +8,51 @@
             <hr>
 
             <router-link to="/" class="link">
-                <p><i class="fa fa-home" aria-hidden="true"></i>메인</p>
+                <p v-if="!isTablet"><i class="fa fa-home" aria-hidden="true"></i>메인</p>
+                <p v-if="isTablet"><i class="fa fa-home" aria-hidden="true"></i></p>
             </router-link>
 
-            <p class="link" @click="toggleInfo"><i class="fa fa-book" aria-hidden="true"></i>정보</p>
+            <p v-if="!isTablet" class="link" @click="toggleInfo"><i class="fa fa-book" aria-hidden="true"></i>정보</p>
+            <p v-if="isTablet" class="link" @click="toggleInfo"><i class="fa fa-book" aria-hidden="true"></i></p>
 
-            <item v-if="showInfo">
-                <router-link to="/credit" class="link">
-                    <p><i class="fa fa-credit-card" aria-hidden="true"></i>신용이란?</p>
-                </router-link>
+            <router-link v-if="showInfo" to="/credit" class="link">
+                <p v-if="!isTablet"><i class="fa fa-credit-card" aria-hidden="true"></i>신용이란?</p>
+                <p v-if="isTablet"><i class="fa fa-credit-card" aria-hidden="true"></i></p>
+            </router-link>
 
-                <router-link to="/rating" class="link">
-                    <p><i class="fa fa-list-ol" aria-hidden="true"></i>신용등급</p>
-                </router-link>
+            <router-link v-if="showInfo" to="/rating" class="link">
+                <p v-if="!isTablet"><i class="fa fa-list-ol" aria-hidden="true"></i>신용등급</p>
+                <p v-if="isTablet"><i class="fa fa-list-ol" aria-hidden="true"></i></p>
+            </router-link>
 
-                <router-link to="/nonfin" class="link">
-                    <p><i class="fa fa-info-circle" aria-hidden="true"></i>비금융정보</p>
-                </router-link>
-            </item>
+            <router-link v-if="showInfo" to="/nonfin" class="link">
+                <p v-if="!isTablet"><i class="fa fa-info-circle" aria-hidden="true"></i>비금융정보</p>
+                <p v-if="isTablet"><i class="fa fa-info-circle" aria-hidden="true"></i></p>
+            </router-link>
 
             <hr>
 
-            <p class="link" @click="toggleMyCredit"><i class="fa fa-user" aria-hidden="true"></i>내 신용등급</p>
+            <p v-if="!isTablet" class="link" @click="toggleMyCredit"><i class="fa fa-user" aria-hidden="true"></i>내 신용등급</p>
+            <p v-if="isTablet" class="link" @click="toggleMyCredit"><i class="fa fa-user" aria-hidden="true"></i></p>
 
-            <item v-if="showMyCredit">
-                <router-link to="/lookup" class="link">
-                    <p><i class="fa fa-check" aria-hidden="true"></i>조회</p>
-                </router-link>
+            <router-link v-if="showMyCredit" to="/lookup" class="link">
+                <p v-if="!isTablet"><i class="fa fa-check" aria-hidden="true"></i>조회</p>
+                <p v-if="isTablet"><i class="fa fa-check" aria-hidden="true"></i></p>
+            </router-link>
 
-                <router-link to="/result" class="link">
-                    <p><i class="fa fa-file-text" aria-hidden="true"></i>결과</p>
-                </router-link>
+            <router-link v-if="showMyCredit" to="/result" class="link">
+                <p v-if="!isTablet"><i class="fa fa-file-text" aria-hidden="true"></i>결과</p>
+                <p v-if="isTablet"><i class="fa fa-file-text" aria-hidden="true"></i></p>
+            </router-link>
 
-                <router-link to="/statistics" class="link">
-                    <p><i class="fa fa-pie-chart" aria-hidden="true"></i>통계</p>
-                </router-link>
-            </item>
+            <router-link v-if="showMyCredit" to="/statistics" class="link">
+                <p v-if="!isTablet"><i class="fa fa-pie-chart" aria-hidden="true"></i>통계</p>
+                <p v-if="isTablet"><i class="fa fa-pie-chart" aria-hidden="true"></i></p>
+            </router-link>
 
             <router-link to="/strategy" class="link">
-                <p><i class="fa fa-line-chart" aria-hidden="true"></i>전략</p>
+                <p v-if="!isTablet"><i class="fa fa-line-chart" aria-hidden="true"></i>전략</p>
+                <p v-if="isTablet"><i class="fa fa-line-chart" aria-hidden="true"></i></p>
             </router-link>
 
             <hr>
@@ -60,6 +66,8 @@
 export default {
     data: function() {
         return {
+            isMobile: false,
+            isTablet: false,
             showInfo: false,
             showMyCredit: false
         };
@@ -70,7 +78,28 @@ export default {
         },
         toggleMyCredit: function() {
             this.showMyCredit = !this.showMyCredit;
+        },
+        handleResize: function() {
+            if(window.innerWidth < 500) {
+                this.isMobile = true;
+                this.isTablet = true;
+            }
+            else if(window.innerWidth >= 500 && window.innerWidth < 1100) {
+                this.isMobile = false;
+                this.isTablet = true;
+            }
+            else {
+                this.isMobile = false;
+                this.isTablet = false;
+            }
         }
+    },
+    created() {
+        window.addEventListener('resize', this.handleResize);
+        this.handleResize();
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.handleResize);
     }
 }
 </script>
@@ -113,16 +142,40 @@ export default {
         text-decoration: none;
     }
     .link:hover {
-        color: blue;
+        color: black;
         cursor: default;
         text-decoration: none;
     }
     i {
+        margin-top: 2px;
         position: absolute;
         left: 30px;
     }
     p {
         margin-left: 35px;
         font-family: 'BinggraeMelona', sans-serif;
+    }
+
+    /* Tablet */
+    @media screen and (max-width: 1099px) {
+        i {
+            position: static;
+            left: 0px;
+            font-size: 30px;
+        }
+        p {
+            margin-left: 0px;
+        }
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 499px) {
+        .sidebar {
+            padding: 20px 0px 20px 0px;
+        }
+        hr {
+            border-top: 1px solid rgba(84, 156, 84);
+            border-bottom: 0px;
+        }
     }
 </style>

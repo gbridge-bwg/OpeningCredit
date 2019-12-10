@@ -14,7 +14,7 @@ export default {
     .content {
         width: 85vw;
         min-height: 500px;
-        background-color: rgb(187, 218, 236);
+        /* background-color: rgb(187, 218, 236); */
     }
     p {
         margin-top: 0px;

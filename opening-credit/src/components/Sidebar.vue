@@ -1,7 +1,9 @@
 <template>
     <div class="sidebar">
         <center>
-            <img src="/src/assets/title-eng.png" alt="title-eng.png">
+            <router-link to="/" class="link">
+                <img src="/src/assets/title-eng.png" alt="title-eng.png">
+            </router-link>
 
             <hr>
 
@@ -9,35 +11,39 @@
                 <p><i class="fa fa-home" aria-hidden="true"></i>메인</p>
             </router-link>
 
-            <p><i class="fa fa-book" aria-hidden="true"></i>정보</p>
+            <p class="link" @click="toggleInfo"><i class="fa fa-book" aria-hidden="true"></i>정보</p>
 
-            <router-link to="/credit" class="link">
-                <p><i class="fa fa-credit-card" aria-hidden="true"></i>신용이란?</p>
-            </router-link>
+            <item v-if="showInfo">
+                <router-link to="/credit" class="link">
+                    <p><i class="fa fa-credit-card" aria-hidden="true"></i>신용이란?</p>
+                </router-link>
 
-            <router-link to="/rating" class="link">
-                <p><i class="fa fa-list-ol" aria-hidden="true"></i>신용등급</p>
-            </router-link>
+                <router-link to="/rating" class="link">
+                    <p><i class="fa fa-list-ol" aria-hidden="true"></i>신용등급</p>
+                </router-link>
 
-            <router-link to="/nonfin" class="link">
-                <p><i class="fa fa-info-circle" aria-hidden="true"></i>비금융정보</p>
-            </router-link>
+                <router-link to="/nonfin" class="link">
+                    <p><i class="fa fa-info-circle" aria-hidden="true"></i>비금융정보</p>
+                </router-link>
+            </item>
 
             <hr>
 
-            <p><i class="fa fa-user" aria-hidden="true"></i>내 신용등급</p>
+            <p class="link" @click="toggleMyCredit"><i class="fa fa-user" aria-hidden="true"></i>내 신용등급</p>
 
-            <router-link to="/lookup" class="link">
-                <p><i class="fa fa-check" aria-hidden="true"></i>조회</p>
-            </router-link>
+            <item v-if="showMyCredit">
+                <router-link to="/lookup" class="link">
+                    <p><i class="fa fa-check" aria-hidden="true"></i>조회</p>
+                </router-link>
 
-            <router-link to="/result" class="link">
-                <p><i class="fa fa-file-text" aria-hidden="true"></i>결과</p>
-            </router-link>
+                <router-link to="/result" class="link">
+                    <p><i class="fa fa-file-text" aria-hidden="true"></i>결과</p>
+                </router-link>
 
-            <router-link to="/statistics" class="link">
-                <p><i class="fa fa-pie-chart" aria-hidden="true"></i>통계</p>
-            </router-link>
+                <router-link to="/statistics" class="link">
+                    <p><i class="fa fa-pie-chart" aria-hidden="true"></i>통계</p>
+                </router-link>
+            </item>
 
             <router-link to="/strategy" class="link">
                 <p><i class="fa fa-line-chart" aria-hidden="true"></i>전략</p>
@@ -52,7 +58,20 @@
 
 <script>
 export default {
-    
+    data: function() {
+        return {
+            showInfo: false,
+            showMyCredit: false
+        };
+    },
+    methods: {
+        toggleInfo: function() {
+            this.showInfo = !this.showInfo;
+        },
+        toggleMyCredit: function() {
+            this.showMyCredit = !this.showMyCredit;
+        }
+    }
 }
 </script>
 
@@ -68,6 +87,7 @@ export default {
         min-height: 100vh;
         padding: 20px 10px 20px 10px;
         background-color: #a8dba8;
+        position: relative;
     }
     img {
         width: 80%;
@@ -97,7 +117,12 @@ export default {
         cursor: default;
         text-decoration: none;
     }
+    i {
+        position: absolute;
+        left: 30px;
+    }
     p {
+        margin-left: 35px;
         font-family: 'BinggraeMelona', sans-serif;
     }
-    </style>
+</style>

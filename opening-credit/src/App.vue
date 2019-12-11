@@ -28,6 +28,7 @@ export default {
         display: flex;
     }
     #right {
-        display: block;
+        display: flex;
+        flex-direction:column;
     }
 </style>

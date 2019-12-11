@@ -1,13 +1,13 @@
 <template>
     <div id="input2-wrap-default">
-      <input id="input2-text" placeholder="Search for ..." maxlength="10"/>
+      <input id="input2-text" placeholder="Search" maxlength="10" :style="{width:width}"/>
       <label id="input2-label"><i class="fa fa-search" aria-hidden="true"></i></label>
     </div>
 </template>
 
 <script>
 export default {
-
+    props: ['width']
 }
 </script>
 
@@ -30,6 +30,36 @@ export default {
     color: #000;
 }
 
+#input2-text {
+    background-repeat: no-repeat;
+    background-position-x: right;
+    box-shadow: none;
+    width: 300px;
+    min-width: 50px;
+    text-align: left;
+    text-indent: 5px;
+    margin: 0;
+    display: inline-block;
+    float: left;
+    background-color: transparent;
+    height: 30px;
+    outline: 0;
+    line-height: 13px;
+    border: 0;
+    padding: 0 10px 0 5px;
+    color: #666666;
+    box-sizing: border-box;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-shadow: none;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    font: 400 15px Arial;
+}
+
 #input2-label {
     margin: 0;
     display: inline-block;
@@ -50,37 +80,6 @@ export default {
     cursor: default;
     border-radius: 0px 5px 5px 0px;
     margin-top: 1px;
-}
-
-#input2-text {
-    background-repeat: no-repeat;
-    background-position-x: right;
-    box-shadow: none;
-    width: 300px !important;
-    min-width: 50px;
-    text-align: left;
-    text-indent: 5px;
-    margin: 0;
-    display: inline-block;
-    float: left;
-    background-color: transparent;
-    height: 30px;
-    font-size: 15px;
-    outline: 0;
-    line-height: 13px;
-    border: 0;
-    padding: 0 10px 0 5px;
-    color: #666666;
-    box-sizing: border-box;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-shadow: none;
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    font: 400 15px Arial;
 }
 
 .fa {

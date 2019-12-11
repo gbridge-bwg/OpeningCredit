@@ -1,8 +1,9 @@
 <template>
-    <div class="sidebar">
+    <div class="sidebar" v-if="showSidebar">
         <center>
             <router-link to="/" class="link">
-                <img src="/src/assets/title-eng.png" alt="title-eng.png">
+                <img v-if="!isMobile" src="/src/assets/title.png" alt="title.png">
+                <img v-if="isMobile" src="/src/assets/title-mobile.png" alt="title-mobile.png" style="width: 60%;">
             </router-link>
 
             <hr>
@@ -57,15 +58,19 @@
 
             <hr>
 
-            <img src="/src/assets/gbridge.png" alt="gbridge.png">
+            <img v-if="!isMobile" src="/src/assets/gbridge.png" alt="gbridge.png">
+            <img v-if="isMobile" src="/src/assets/gbridge-mobile.png" alt="gbridge.png" style="width: 45%">
         </center>
     </div>
 </template>
 
 <script>
+import { EventBus } from './event-bus.js'
+
 export default {
     data: function() {
         return {
+            showSidebar: true,
             isMobile: false,
             isTablet: false,
             showInfo: false,
@@ -97,6 +102,9 @@ export default {
     created() {
         window.addEventListener('resize', this.handleResize);
         this.handleResize();
+        EventBus.$on('showSidebar', showSidebar => {
+            this.showSidebar = showSidebar;
+        });
     },
     destroyed() {
         window.removeEventListener('resize', this.handleResize);
@@ -166,6 +174,13 @@ export default {
         p {
             margin-left: 0px;
         }
+        hr {
+            margin: 20px 0px 20px 0px;
+            width: 80%;
+        }
+        img {
+            width: 100%;
+        }
     }
 
     /* Mobile */
@@ -173,9 +188,12 @@ export default {
         .sidebar {
             padding: 20px 0px 20px 0px;
         }
+        i {
+            font-size: 20px;
+        }
         hr {
-            border-top: 1px solid rgba(84, 156, 84);
-            border-bottom: 0px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
     }
 </style>

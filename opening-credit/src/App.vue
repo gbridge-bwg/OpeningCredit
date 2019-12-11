@@ -3,7 +3,7 @@
         <Sidebar></Sidebar>
         <div id="right">
             <Navbar></Navbar>
-            <router-view></router-view>
+            <Content></Content>
             <Footer></Footer>
         </div>
     </div>
@@ -12,12 +12,14 @@
 <script>
 import Sidebar from './components/Sidebar.vue'
 import Navbar from './components/Navbar.vue'
+import Content from './components/Content.vue'
 import Footer from './components/Footer.vue'
 
 export default {
     components: {
         Sidebar,
         Navbar,
+        Content,
         Footer
     }
 }

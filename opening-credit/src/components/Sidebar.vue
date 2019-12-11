@@ -1,60 +1,42 @@
 <template>
     <div class="sidebar" v-if="showSidebar">
         <center>
-            <router-link to="/" class="link">
-                <img v-if="!isMobile" src="/src/assets/title.png" alt="title.png">
-                <img v-if="isMobile" src="/src/assets/title-mobile.png" alt="title-mobile.png" style="width: 60%;">
-            </router-link>
+            <img v-if="!isMobile" @click="changeContentView('Main')" src="/src/assets/title.png" alt="title.png">
+            <img v-if="isMobile" src="/src/assets/title-mobile.png" alt="title-mobile.png" style="width: 60%;">
 
             <hr>
 
-            <router-link to="/" class="link">
-                <p v-if="!isTablet"><i class="fa fa-home" aria-hidden="true"></i>메인</p>
-                <p v-if="isTablet"><i class="fa fa-home" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="!isTablet" @click="changeContentView('Main')"><i class="fa fa-home" aria-hidden="true"></i>메인</p>
+            <p v-if="isTablet" @click="changeContentView('Main')"><i class="fa fa-home" aria-hidden="true"></i></p>
 
-            <p v-if="!isTablet" class="link" @click="toggleInfo"><i class="fa fa-book" aria-hidden="true"></i>정보</p>
-            <p v-if="isTablet" class="link" @click="toggleInfo"><i class="fa fa-book" aria-hidden="true"></i></p>
+            <p v-if="!isTablet" class="link" @click="showInfo = !showInfo"><i class="fa fa-book" aria-hidden="true"></i>정보</p>
+            <p v-if="isTablet" class="link" @click="showInfo = !showInfo"><i class="fa fa-book" aria-hidden="true"></i></p>
 
-            <router-link v-if="showInfo" to="/credit" class="link">
-                <p v-if="!isTablet"><i class="fa fa-credit-card" aria-hidden="true"></i>신용이란?</p>
-                <p v-if="isTablet"><i class="fa fa-credit-card" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="showInfo && !isTablet" @click="changeContentView('Credit')"><i class="fa fa-credit-card" aria-hidden="true"></i>신용</p>
+            <p v-if="showInfo && isTablet" @click="changeContentView('Credit')"><i class="fa fa-credit-card" aria-hidden="true"></i></p>
 
-            <router-link v-if="showInfo" to="/rating" class="link">
-                <p v-if="!isTablet"><i class="fa fa-list-ol" aria-hidden="true"></i>신용등급</p>
-                <p v-if="isTablet"><i class="fa fa-list-ol" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="showInfo && !isTablet" @click="changeContentView('Rating')"><i class="fa fa-list-ol" aria-hidden="true"></i>신용등급</p>
+            <p v-if="showInfo && isTablet" @click="changeContentView('Rating')"><i class="fa fa-list-ol" aria-hidden="true"></i></p>
 
-            <router-link v-if="showInfo" to="/nonfin" class="link">
-                <p v-if="!isTablet"><i class="fa fa-info-circle" aria-hidden="true"></i>비금융정보</p>
-                <p v-if="isTablet"><i class="fa fa-info-circle" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="showInfo && !isTablet" @click="changeContentView('NonFin')"><i class="fa fa-info-circle" aria-hidden="true"></i>비금융정보</p>
+            <p v-if="showInfo && isTablet" @click="changeContentView('NonFin')"><i class="fa fa-info-circle" aria-hidden="true"></i></p>
 
             <hr>
 
-            <p v-if="!isTablet" class="link" @click="toggleMyCredit"><i class="fa fa-user" aria-hidden="true"></i>내 신용등급</p>
-            <p v-if="isTablet" class="link" @click="toggleMyCredit"><i class="fa fa-user" aria-hidden="true"></i></p>
+            <p v-if="!isTablet" class="link" @click="showMyCredit = !showMyCredit"><i class="fa fa-user" aria-hidden="true"></i>내 신용등급</p>
+            <p v-if="isTablet" class="link" @click="showMyCredit = !showMyCredit"><i class="fa fa-user" aria-hidden="true"></i></p>
 
-            <router-link v-if="showMyCredit" to="/lookup" class="link">
-                <p v-if="!isTablet"><i class="fa fa-check" aria-hidden="true"></i>조회</p>
-                <p v-if="isTablet"><i class="fa fa-check" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="showMyCredit && !isTablet" @click="changeContentView('LookUp')"><i class="fa fa-check" aria-hidden="true"></i>조회</p>
+            <p v-if="showMyCredit && isTablet" @click="changeContentView('LookUp')"><i class="fa fa-check" aria-hidden="true"></i></p>
 
-            <router-link v-if="showMyCredit" to="/result" class="link">
-                <p v-if="!isTablet"><i class="fa fa-file-text" aria-hidden="true"></i>결과</p>
-                <p v-if="isTablet"><i class="fa fa-file-text" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="showMyCredit && !isTablet" @click="changeContentView('Result')"><i class="fa fa-file-text" aria-hidden="true"></i>결과</p>
+            <p v-if="showMyCredit && isTablet" @click="changeContentView('Result')"><i class="fa fa-file-text" aria-hidden="true"></i></p>
 
-            <router-link v-if="showMyCredit" to="/statistics" class="link">
-                <p v-if="!isTablet"><i class="fa fa-pie-chart" aria-hidden="true"></i>통계</p>
-                <p v-if="isTablet"><i class="fa fa-pie-chart" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="showMyCredit && !isTablet" @click="changeContentView('Statistics')"><i class="fa fa-pie-chart" aria-hidden="true"></i>통계</p>
+            <p v-if="showMyCredit && isTablet" @click="changeContentView('Statistics')"><i class="fa fa-pie-chart" aria-hidden="true"></i></p>
 
-            <router-link to="/strategy" class="link">
-                <p v-if="!isTablet"><i class="fa fa-line-chart" aria-hidden="true"></i>전략</p>
-                <p v-if="isTablet"><i class="fa fa-line-chart" aria-hidden="true"></i></p>
-            </router-link>
+            <p v-if="!isTablet" @click="changeContentView('Strategy')"><i class="fa fa-line-chart" aria-hidden="true"></i>전략</p>
+            <p v-if="isTablet" @click="changeContentView('Strategy')"><i class="fa fa-line-chart" aria-hidden="true"></i></p>
 
             <hr>
 
@@ -74,16 +56,10 @@ export default {
             isMobile: false,
             isTablet: false,
             showInfo: false,
-            showMyCredit: false
+            showMyCredit: false,
         };
     },
     methods: {
-        toggleInfo: function() {
-            this.showInfo = !this.showInfo;
-        },
-        toggleMyCredit: function() {
-            this.showMyCredit = !this.showMyCredit;
-        },
         handleResize: function() {
             if(window.innerWidth < 500) {
                 this.isMobile = true;
@@ -97,6 +73,9 @@ export default {
                 this.isMobile = false;
                 this.isTablet = false;
             }
+        },
+        changeContentView: function(message) {
+            EventBus.$emit('changeContentView', message);
         }
     },
     created() {
@@ -129,6 +108,9 @@ export default {
     img {
         width: 80%;
     }
+    img:hover {
+        cursor: pointer;
+    }
     hr {
         margin: 20px;
         border-top: 1px solid rgba(84, 156, 84);
@@ -151,7 +133,7 @@ export default {
     }
     .link:hover {
         color: black;
-        cursor: default;
+        cursor: pointer;
         text-decoration: none;
     }
     i {
@@ -162,6 +144,9 @@ export default {
     p {
         margin-left: 35px;
         font-family: 'BinggraeMelona', sans-serif;
+    }
+    p:hover {
+        cursor: pointer;
     }
 
     /* Tablet */

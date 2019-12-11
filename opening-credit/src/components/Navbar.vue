@@ -2,7 +2,7 @@
     <div class="navbar" :style="{ width: navbarWidth }">
         <i class="fa fa-bars menu" @click="toggleSidebar" aria-hidden="true"></i>
         <gb-input2 v-if="!isTablet && !isMobile" class="search" width="300px"></gb-input2>
-        <gb-input2 v-if="isTablet && !isMobile" class="search" width="200px"></gb-input2>
+        <gb-input2 v-if="isTablet && !isMobile" class="search" width="175px"></gb-input2>
         <gb-input2 v-if="isMobile" class="search" width="100px"></gb-input2>
 
         <gb-button class="user" label="로그인" fill="true"></gb-button>

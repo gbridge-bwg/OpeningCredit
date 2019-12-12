@@ -55,10 +55,10 @@ export default {
         width: 85vw;
     }
 
+    /* 트랜지션, 애니메이션 */
     .fade-enter-active, .fade-leave-active {
         transition: opacity .3s ease-out;
     }
-
     .fade-enter, .fade-leave-to {
         opacity: 0;
     }

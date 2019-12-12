@@ -1,15 +1,16 @@
 <template>
     <div id="input2-wrap-default">
-      <input id="input2-text" placeholder="Search" maxlength="10" :style="{width:width}"/>
-      <label id="input2-label"><i class="fa fa-search" aria-hidden="true"></i></label>
+      <label id="input2-label">{{label}}</label>
+      <input id="input2-text" maxlength="30"/>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['width']
+    props: ['label']
 }
 </script>
+
 
 <style scoped>
 #input2-wrap-default {
@@ -18,31 +19,54 @@ export default {
     display: inline-block;
     padding: 0 0 0 0;
     line-height: 25px;
-    height: 30px;
+    height: 25px;
     background: white;
     box-shadow: 0 0 0 1px #e6e6e6 inset;
     font-family: 'notokr';
     font-weight: normal;
-    margin-top: 13px;
+    margin: 0;
     padding: 0;
     font-size: 12px;
     box-sizing: border-box;
     color: #000;
+    
+}
+
+#input2-label {
+    margin: 0;
+    display: inline-block;
+    float: left;
+    background-color: transparent;
+    height: 25px;
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 90px;
+    border-right: 1px solid #e6e6e6;
+    line-height: 25px;
+    font-weight: 400;
+    background-size: auto 100%;
+    text-align: center;
+    color: green;
+    box-sizing: border-box;
+    cursor: default;
 }
 
 #input2-text {
     background-repeat: no-repeat;
     background-position-x: right;
     box-shadow: none;
-    width: 300px;
+    width: 200px !important;
     min-width: 50px;
-    text-align: left;
-    text-indent: 5px;
+    text-align: center;
+    text-indent: 0;
     margin: 0;
     display: inline-block;
     float: left;
     background-color: transparent;
-    height: 30px;
+    height: 25px;
+    font-size: 11px;
     outline: 0;
     line-height: 13px;
     border: 0;
@@ -57,33 +81,7 @@ export default {
     text-shadow: none;
     -webkit-rtl-ordering: logical;
     cursor: text;
-    font: 400 15px Arial;
-}
-
-#input2-label {
-    margin: 0;
-    display: inline-block;
-    float: left;
-    background-color: rgba(84, 156, 84);
-    height: 28px;
-    font-size: 15px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 30px;
-    line-height: 25px;
-    font-weight: 400;
-    background-size: auto 100%;
-    text-align: center;
-    color: white;
-    box-sizing: border-box;
-    cursor: pointer;
-    border-radius: 0px 5px 5px 0px;
-    margin-top: 1px;
-}
-
-.fa {
-    margin-top: 5.5px;
+    font: 400 13.3333px Arial;
 }
 
 </style>>

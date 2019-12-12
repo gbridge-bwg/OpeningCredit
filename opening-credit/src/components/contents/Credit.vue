@@ -71,18 +71,17 @@ export default {
     .wrapper {
         display: flex;
         flex-direction: column;
-        align-items: left;
+        align-items: center;
     }
     #title {
-        border: 5px solid #a8dba8;
+        border: 5px solid rgba(84, 156, 84);
         border-radius: 5px;
         width: 150px;
         height: 50px;
         line-height: 50px;
         vertical-align: middle;
         text-align: center;
-        margin-top: 20px;
-        margin-left: 20px;
+        margin: 20px 20px 0px 20px;
         font-size: 20px;
         font-weight: bold;
     }

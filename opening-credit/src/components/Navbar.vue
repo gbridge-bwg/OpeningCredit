@@ -78,6 +78,7 @@ export default {
         margin-left: 25px;
         margin-right: 20px;
         margin-bottom: 4px;
+        cursor: pointer;
     }
     .search {
         border-radius: 5px;
@@ -87,6 +88,7 @@ export default {
         font-size: 22px;
         margin-top: 15px;
         margin-right: 20px;
+        cursor: pointer;
     }
     .user {
         float: right;

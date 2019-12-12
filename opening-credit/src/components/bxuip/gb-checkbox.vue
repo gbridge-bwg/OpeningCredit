@@ -1,6 +1,6 @@
 <template>
-    <div class="gb-checkbox">
-        <div class="box" @click="check"></div>
+    <div class="gb-checkbox" @click="check">
+        <div id="box"></div>
         <span class="text">{{text}}</span>
     </div>
 </template>
@@ -16,14 +16,14 @@ export default {
         };
     },
     methods: {
-        check: function(event) {
+        check: function() {
             if(this.isChecked) {
                 this.isChecked = false;
-                event.target.style.backgroundImage = "";
+                document.getElementById('box').style.backgroundImage = "";
             }
             else {
                 this.isChecked = true;
-                event.target.style.backgroundImage = "url('/src/assets/checked.png')";
+                document.getElementById('box').style.backgroundImage = "url('/src/assets/checked.png')";
             }
         }
     }
@@ -36,7 +36,7 @@ export default {
         align-items: center;
         margin-top: 20px;
     }
-    .box {
+    #box {
         border: 1px solid rgba(0, 0, 0, 0.3);
         width: 15px;
         height: 15px;

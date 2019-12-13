@@ -14,7 +14,7 @@
             <gb-input1 label="인스타그램"></gb-input1>
         </div>
 
-        <span class="nextBtn" @click="changeLookUpView('Charge')">
+        <span class="nextBtn" @click="changeLookUpView('Survey')">
             <gb-button label="다음" colorLevel="colorLevel6"></gb-button>
         </span>
     </div>

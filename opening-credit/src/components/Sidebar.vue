@@ -53,8 +53,10 @@
 
                 <hr>
 
-                <img v-if="!isMobile" src="/src/assets/gbridge.png" alt="gbridge.png">
-                <img v-if="isMobile" src="/src/assets/gbridge-mobile.png" alt="gbridge.png" style="width: 45%">
+                <a href="http://g-bridge.kr">
+                    <img v-if="!isMobile" src="/src/assets/gbridge.png" alt="gbridge.png">
+                    <img v-if="isMobile" src="/src/assets/gbridge-mobile.png" alt="gbridge.png" style="width: 45%">
+                </a>
             </center>
         </div>
     </transition>

@@ -16,7 +16,7 @@ import { EventBus } from './../event-bus.js'
 import GbProgress from './../bxuip/gb-progress.vue'
 import Agree from './lookupcontents/agree.vue'
 import Sns from './lookupcontents/sns.vue'
-import Charge from './lookupcontents/charge.vue'
+import Survey from './lookupcontents/survey.vue'
 import Loading from './lookupcontents/loading.vue'
 
 export default {
@@ -24,7 +24,7 @@ export default {
         GbProgress,
         Agree,
         Sns,
-        Charge,
+        Survey,
         Loading
     },
     data: function() {

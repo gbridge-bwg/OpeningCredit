@@ -114,7 +114,7 @@ table {
       border-left: 1px solid #e6e6e6 !important;
       border-top: 1px solid #e6e6e6 !important;
       background: #fbfbfb !important;
-      color: #1299c1 !important;
+      color: rgba(84, 156, 84) !important;
       border: 1px solid #c5c5c5;
       border-right: 1px solid #e6e6e6 !important;
       margin: 0;

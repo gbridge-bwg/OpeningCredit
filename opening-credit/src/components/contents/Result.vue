@@ -4,8 +4,8 @@
 
         <div id="content">
             <div id="scoreboard">
-                <div id="score">{{score}}점</div>
-                <div id="grade">{{grade}}등급</div>
+                <div id="score">{{score}}<span style="font-size: 20px;">점</span></div>
+                <div id="grade">{{grade}} <span style="font-size: 15px;">등급</span></div>
             </div>
 
             <div id="grid">
@@ -70,8 +70,9 @@ export default {
     #score {
         width: 200px;
         height: 200px;
-        border: 1px solid black;
-        border-radius: 150px;
+        border: 5px solid green;
+        /* border-radius: 150px; */
+        border-radius: 50%;
         text-align: center;
         margin: 0 auto;
         vertical-align: middle;
@@ -79,7 +80,7 @@ export default {
         font-size: 40px;
     }
     #grade {
-        height: 100px;
+        height: 50px;
         text-align: center;
         margin: 0 auto;
         vertical-align: middle;

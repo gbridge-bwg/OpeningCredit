@@ -16,13 +16,13 @@ import { EventBus } from './../../event-bus.js'
 export default {
     components: {
         'cycle1': {
-            template: `<img class="imgcycle" src="/src/assets/cycle1.png"></img>`
+            template: `<img class="imgcycle" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/cycle1.png?raw=true"></img>`
         },
         'cycle2': {
-            template: `<img class="imgcycle" src="/src/assets/cycle2.png"></img>`
+            template: `<img class="imgcycle" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/cycle2.png?raw=true"></img>`
         },
         'cycle3': {
-            template: `<img class="imgcycle" src="/src/assets/cycle3.png"></img>`
+            template: `<img class="imgcycle" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/cycle3.png?raw=true"></img>`
         },
     },
     data: function(){
@@ -41,31 +41,31 @@ export default {
 
         setTimeout(function() {
             EventBus.$emit('changeContentView', 'Result');
-        }, 3000);
+        }, 7000);
 
         setTimeout(function() {
             EventBus.$emit('imagecycle', 'cycle2');
-        }, 500);
-
-        setTimeout(function() {
-            EventBus.$emit('imagecycle', 'cycle3');
         }, 1000);
 
         setTimeout(function() {
-            EventBus.$emit('imagecycle', 'cycle1');
-        }, 1500);
-
-        setTimeout(function() {
-            EventBus.$emit('imagecycle', 'cycle2');
-        }, 2000);
-
-        setTimeout(function() {
             EventBus.$emit('imagecycle', 'cycle3');
-        }, 2500);
+        }, 2000);
 
         setTimeout(function() {
             EventBus.$emit('imagecycle', 'cycle1');
         }, 3000);
+
+        setTimeout(function() {
+            EventBus.$emit('imagecycle', 'cycle2');
+        }, 4000);
+
+        setTimeout(function() {
+            EventBus.$emit('imagecycle', 'cycle3');
+        }, 5000);
+
+        setTimeout(function() {
+            EventBus.$emit('imagecycle', 'cycle1');
+        }, 6000);
     }
 }
 </script>

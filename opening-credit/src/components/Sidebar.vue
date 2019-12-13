@@ -2,8 +2,8 @@
     <transition name="sidebarfade" mode="out-in">
         <div class="sidebar" v-if="showSidebar">
             <center>
-                <img v-if="!isMobile" @click="changeContentView('Main')" src="/src/assets/title.png" alt="title.png">
-                <img v-if="isMobile" src="/src/assets/title-mobile.png" alt="title-mobile.png" style="width: 60%;">
+                <img v-if="!isMobile" @click="changeContentView('Main')" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/title.png?raw=true" alt="title.png">
+                <img v-if="isMobile" src="/src/assets/title-mobile.png" alt="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/title-mobile.png?raw=true" style="width: 60%;">
 
                 <hr>
 
@@ -54,8 +54,8 @@
                 <hr>
 
                 <a href="http://g-bridge.kr">
-                    <img v-if="!isMobile" src="/src/assets/gbridge.png" alt="gbridge.png">
-                    <img v-if="isMobile" src="/src/assets/gbridge-mobile.png" alt="gbridge.png" style="width: 45%">
+                    <img v-if="!isMobile" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/gbridge.png?raw=true" alt="gbridge.png">
+                    <img v-if="isMobile" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/gbridge-mobile.png?raw=true" alt="gbridge.png" style="width: 45%">
                 </a>
             </center>
         </div>

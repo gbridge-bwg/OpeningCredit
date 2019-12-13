@@ -23,7 +23,7 @@ export default {
             }
             else {
                 this.isChecked = true;
-                document.getElementById('box').style.backgroundImage = "url('/src/assets/checked.png')";
+                document.getElementById('box').style.backgroundImage = "url('https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/checked.png?raw=true')";
             }
         }
     }

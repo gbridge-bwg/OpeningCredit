@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <img id="maintitle" src="./../../assets/maintitle.png" alt="maintitle.png">
+        <img id="maintitle" src="https://github.com/gbridge-bwg/OpeningCredit/blob/master/opening-credit/src/assets/maintitle.png?raw=true" alt="maintitle.png">
         <div>
             <p id="title"><b>Opening Credit</b></p>
             <p id="subtitle"><b>대학생을 위한 신용등급 예측</b></p>

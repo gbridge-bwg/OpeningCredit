@@ -1,6 +1,9 @@
 # OpeningCredit
 
-대학생을 위한 모의 신용등급 조회/관리 서비스(Vue.js)
+대학생을 위한 모의 신용등급 조회/관리 서비스 (UI만 구현)
+
+<img src="./temp/screenshot01.png" width="50%" height="50%">
+<img src="./temp/screenshot02.png" width="50%" height="50%">
 
 ## 😎 author
 

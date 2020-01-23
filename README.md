@@ -11,7 +11,7 @@
 
 ## 💻 development environment
 
-- MacBook Pro 2017(Mojave 10.15.2) / Visual Studio Code 1.41.1
+- MacBook Pro 2017(Catalina 10.15.2) / Visual Studio Code 1.41.1
 
 ## 📀 software requirements
 
